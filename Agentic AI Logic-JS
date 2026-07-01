@@ -1,0 +1,15 @@
+function generateEmail() {
+  const aafpe = document.getElementById("aafpe").value;
+  const ls = document.getElementById("ls").value;
+  const line = document.getElementById("line").value;
+  const template = document.getElementById("template").value;
+
+  const machineReport = `
+- Machine AAFPE is in ${aafpe} status
+- Machine LS is in ${ls} status
+- Machine Line is in ${line} status
+`;
+
+  const finalEmail = template.replace("___", machineReport.trim());
+  document.getElementById("output").textContent = finalEmail;
+}
