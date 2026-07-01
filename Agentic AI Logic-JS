@@ -16,19 +16,5 @@ function generateEmail() {
     finalEmail += `\n\nAdditional Comments:\n${comments}`;
   }
 
-  document.getElementById("output").textContent = finalEmail;
-
-  // Show uploaded photo preview
-  const photoInput = document.getElementById("photoUpload");
-  if (photoInput.files && photoInput.files[0]) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const img = document.createElement("img");
-      img.src = e.target.result;
-      img.style.maxWidth = "300px";
-      img.style.marginTop = "20px";
-      document.getElementById("output").appendChild(img);
-    };
-    reader.readAsDataURL(photoInput.files[0]);
-  }
-}
+  // Use innerHTML so line breaks render properly
+  const output = document.getElementById("output");
