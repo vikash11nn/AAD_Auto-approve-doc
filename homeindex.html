@@ -8,34 +8,15 @@
   <h1>AESTA – Auto Email Status Analyser</h1>
   <p>This Agentic AI model will help to analyse your input and auto-generate an email draft for key users.</p>
 
+  <label>Email Template:</label><br>
+  <textarea id="template" rows="6" cols="50">Dear Team,
+The machine statuses are: ___
+Regards,</textarea><br><br>
+
+  <!-- Single Form -->
   <form id="statusForm">
     <!-- Machine Status Inputs -->
     <label>Machine AAFPE Status:</label>
     <input type="text" id="aafpe" value="LGFP"><br><br>
 
-    <label>Machine LS Status:</label>
-    <input type="text" id="ls" value="UNBE"><br><br>
-
-    <label>Machine Line Status:</label>
-    <input type="text" id="line" value="PROD"><br><br>
-
-    <!-- Comment Box -->
-    <label>Additional Comments:</label><br>
-    <textarea id="comments" rows="4" cols="50" placeholder="Enter any extra notes..."></textarea><br><br>
-
-    <!-- Upload Photo -->
-    <label>Upload Machine Photo:</label><br>
-    <input type="file" id="photoUpload" accept="image/*"><br><br>
-
-    <!-- Upload Sample Email -->
-    <label>Upload Sample Email (TXT file):</label><br>
-    <input type="file" id="emailUpload" accept=".txt"><br><br>
-
-    <button type="button" onclick="generateEmail()">Generate Email</button>
-  </form>
-
-  <h2>Generated Email Draft</h2>
-  <pre id="output"></pre>
-</body>
-<script src="script.js"></script>
-</html>
+    <label>Machine LS Status
