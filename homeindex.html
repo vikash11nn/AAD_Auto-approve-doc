@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to My Website</title>
+  <title>Agentic AI - Machine Status</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to My Website!</h1>
-  <p>This is the homepage. I’m excited to share my content with you.</p>
+  <h1>Agentic AI - Machine Status Email Generator</h1>
+  
+  <form id="statusForm">
+    <label>Machine AAFPE Status:</label>
+    <input type="text" id="aafpe" value="LGFP"><br><br>
+    
+    <label>Machine LS Status:</label>
+    <input type="text" id="ls" value="UNBE"><br><br>
+    
+    <label>Machine Line Status:</label>
+    <input type="text" id="line" value="PROD"><br><br>
+    
+    <label>Email Template:</label><br>
+    <textarea id="template" rows="6" cols="50">Dear Team,
+The machine statuses are: ___
+Regards,</textarea><br><br>
+    
+    <button type="button" onclick="generateEmail()">Generate Email</button>
+  </form>
+  
+  <h2>Final Email</h2>
+  <pre id="output"></pre>
+  
+  <script src="script.js"></script>
 </body>
 </html>
