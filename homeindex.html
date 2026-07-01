@@ -1,33 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Agentic AI - Machine Status</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Agentic AI - Machine Status Email Generator</h1>
-  
-  <form id="statusForm">
-    <label>Machine AAFPE Status:</label>
-    <input type="text" id="aafpe" value="LGFP"><br><br>
-    
-    <label>Machine LS Status:</label>
-    <input type="text" id="ls" value="UNBE"><br><br>
-    
-    <label>Machine Line Status:</label>
-    <input type="text" id="line" value="PROD"><br><br>
-    
-    <label>Email Template:</label><br>
-    <textarea id="template" rows="6" cols="50">Dear Team,
+<form id="statusForm">
+  <!-- Existing machine status inputs -->
+
+  <label>Email Template:</label><br>
+  <textarea id="template" rows="6" cols="50">Dear Team,
 The machine statuses are: ___
 Regards,</textarea><br><br>
-    
-    <button type="button" onclick="generateEmail()">Generate Email</button>
-  </form>
-  
-  <h2>Final Email</h2>
-  <pre id="output"></pre>
-  
-  <script src="script.js"></script>
-</body>
-</html>
+
+  <!-- New Comment Box -->
+  <label>Additional Comments:</label><br>
+  <textarea id="comments" rows="4" cols="50" placeholder="Enter any extra notes..."></textarea><br><br>
+
+  <!-- New Picture Upload -->
+  <label>Upload Machine Photo:</label><br>
+  <input type="file" id="photoUpload" accept="image/*"><br><br>
+
+  <button type="button" onclick="generateEmail()">Generate Email</button>
+</form>
