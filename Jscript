@@ -1,0 +1,48 @@
+function generateEmail() {
+  const aafpe = document.getElementById("aafpe").value;
+  const ls = document.getElementById("ls").value;
+  const line = document.getElementById("line").value;
+  const comments = document.getElementById("comments").value;
+
+  // Build machine status report
+  const machineReport = `
+- Machine AAFPE is in ${aafpe} status
+- Machine LS is in ${ls} status
+- Machine Line is in ${line} status
+`;
+
+  // Start with a default template
+  let finalEmail = `Dear Team,\nThe machine statuses are:\n${machineReport}`;
+
+  // Add comments if provided
+  if (comments.trim() !== "") {
+    finalEmail += `\nAdditional Comments:\n${comments}`;
+  }
+
+  // If user uploaded a sample email, read and append
+  const emailFile = document.getElementById("emailUpload").files[0];
+  if (emailFile) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      finalEmail += `\n\nBased on your sample email:\n${e.target.result}`;
+      document.getElementById("output").textContent = finalEmail;
+    };
+    reader.readAsText(emailFile);
+  } else {
+    document.getElementById("output").textContent = finalEmail;
+  }
+
+  // Show uploaded photo preview
+  const photoInput = document.getElementById("photoUpload");
+  if (photoInput.files && photoInput.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = document.createElement("img");
+      img.src = e.target.result;
+      img.style.maxWidth = "300px";
+      img.style.marginTop = "20px";
+      document.getElementById("output").appendChild(img);
+    };
+    reader.readAsDataURL(photoInput.files[0]);
+  }
+}
