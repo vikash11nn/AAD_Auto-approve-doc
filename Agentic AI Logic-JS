@@ -3,6 +3,7 @@ function generateEmail() {
   const ls = document.getElementById("ls").value;
   const line = document.getElementById("line").value;
   const template = document.getElementById("template").value;
+  const comments = document.getElementById("comments").value;
 
   const machineReport = `
 - Machine AAFPE is in ${aafpe} status
@@ -10,6 +11,24 @@ function generateEmail() {
 - Machine Line is in ${line} status
 `;
 
-  const finalEmail = template.replace("___", machineReport.trim());
+  let finalEmail = template.replace("___", machineReport.trim());
+  if (comments.trim() !== "") {
+    finalEmail += `\n\nAdditional Comments:\n${comments}`;
+  }
+
   document.getElementById("output").textContent = finalEmail;
+
+  // Show uploaded photo preview
+  const photoInput = document.getElementById("photoUpload");
+  if (photoInput.files && photoInput.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = document.createElement("img");
+      img.src = e.target.result;
+      img.style.maxWidth = "300px";
+      img.style.marginTop = "20px";
+      document.getElementById("output").appendChild(img);
+    };
+    reader.readAsDataURL(photoInput.files[0]);
+  }
 }
